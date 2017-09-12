@@ -77,5 +77,6 @@ NSString *signedToken = [[NSString alloc] initWithData:data encoding:NSUTF8Strin
 }
 - (void)callEstablished {}
 - (void)callEnd:(GruveoCallEndReason)reason {}
-- (void)recordingStateChanged {}```
+- (void)recordingStateChanged {}
+```
 10. Build and run
