@@ -3,10 +3,10 @@ Pod::Spec.new do |s|
   s.version      = "1.0"
   s.summary      = "GruveoSDK is framework to make call using Gruveo API"
 
-  s.homepage     = "http://www.gruveo.com"
+  s.homepage     = "https://www.gruveo.com"
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
-  s.author       = { "Gruveo" => "max.gurkivskyi@gmail.com" }
+  s.author       = { "Gruveo" => "max@gruveo.com" }
 
   s.platform     = :ios, "9.0"
 
