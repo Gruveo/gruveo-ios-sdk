@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "9.0"
 
-  s.source       = { :git => "https://github.com/Gruveo/GruveoSDK.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Gruveo/gruveo-ios-sdk.git", :tag => "#{s.version}" }
 
   s.dependency "GoogleWebRTC", "~> 1.0.136171"
   s.vendored_frameworks = 'GruveoSDK/GruveoPublicSDK.framework'
