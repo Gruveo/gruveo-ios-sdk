@@ -1,18 +1,17 @@
-# GruveoSDK
-GruveoSDK framework and sample project
+# Gruveo SDK for iOS
+The Gruveo SDK for iOS  and a sample project.
 
-## Installation with CocoaPods
+## Pod Installation
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like GruveoSDK in your projects. 
-You can install it with the following command:
+To add the Gruveo SDK for iOS to your app, you will need [CocoaPods](http://cocoapods.org), which is a dependency manager for Objective-C. You can install CocoaPods with the following command:
 
 ```bash
 $ gem install cocoapods
 ```
 
-#### Podfile
+### Podfile
 
-To integrate GruveoSDK into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate the Gruveo SDK into your Xcode project using CocoaPods, add the `GruveoSDK` pod to your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -29,54 +28,55 @@ Then, run the following command:
 $ pod install
 ```
 
-# How to setup without CocoaPods:
+## Application Setup and Usage
 
-1. Create a single view application
-2. Add GruveoSDK.framework and WebRTC.framework to project’s “Embedded Binaries”: “+” -> “Add Other…” -> select framework and press “Open” -> “Finish”. It should appear in both “Embedded Binaries” and “Linked Frameworks and Libraries”
-3. Add NSCameraUsageDescription and NSMicrophoneUsageDescription to the Info.plist
-4. Set Enable Bitcode value to NO in “Target -> Build Settings -> Enable Bitcode”
-5. Import GruveoPublicSDK to AppDelegate and your ViewController class
+1. Add `NSCameraUsageDescription` and `NSMicrophoneUsageDescription` to your application's Info.plist
+2. Set “Enable Bitcode” to NO in Target -> Build Settings -> Enable Bitcode
+3. Import `GruveoPublicSDK` to the `AppDelegate` and your `ViewController` class:
 ```objective-c
 @import GruveoPublicSDK;
 ```
-6. Register you clientId after application startup: 
+4. Register your [сlient ID](https://about.gruveo.com/developers/api-credentials/) after application startup: 
 ```objective-c
-`[GruveoCallManager setClientId:@"demo”]` 
+[GruveoCallManager setClientId:@"demo”]
 ```
-7. Set delegate for GruveoCallManager in viewDidLoad function
+5. Set delegate for `GruveoCallManager` in the `viewDidLoad` function:
 ```objective-c
 [GruveoCallManager setDelegate:self]
 ```
-8. Implement call creation:
+6. Implement creation of the Gruveo call screen:
 ```objective-c
 [GruveoCallManager callCode:@"hello" videoCall:YES onViewController:self callCreationCompletion:^(CallInitError creationError) {
-if (creationError != CallInitErrorNone) {
-// show error here
-}
+    if (creationError != CallInitErrorNone) {
+        // Show error here
+    }
 }];
 ```
-9. Implement delegate functions:
+7. Implement the delegate function for token signing. **Warning**: The sample implementation below uses a signing endpoint provided by Gruveo and will only work for the `demo` client ID:
 ```objective-c
 - (void)requestToSignApiAuthToken:(NSString *)token {
-NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api-demo.gruveo.com/signer"]];
-[request setHTTPMethod:@"POST"];
-[request setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-[request setHTTPBody:[token dataUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api-demo.gruveo.com/signer"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:[token dataUsingEncoding:NSUTF8StringEncoding]];
 
-NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
 
-[[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-if ([data isKindOfClass:[NSData class]]) {
-NSString *signedToken = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-[GruveoCallManager authorize:signedToken];
-} else {
-[GruveoCallManager authorize:nil];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if ([data isKindOfClass:[NSData class]]) {
+            NSString *signedToken = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            [GruveoCallManager authorize:signedToken];
+        } else {
+            [GruveoCallManager authorize:nil];
+        }
+    }] resume];
 }
-}] resume];
-}
+```
+8. Implement the other useful delegate functions:
+```objective-c
 - (void)callEstablished {}
 - (void)callEnd:(GruveoCallEndReason)reason {}
 - (void)recordingStateChanged {}
 ```
-10. Build and run
+8. Build and run your application.
