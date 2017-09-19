@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
 
   s.dependency "GoogleWebRTC", "~> 1.0.136171"
 
-  s.vendored_frameworks = 'GruveoSDK/GruveoPublicSDK.framework'
+  s.vendored_frameworks = 'GruveoSDK/GruveoSDK.framework'
 
 end

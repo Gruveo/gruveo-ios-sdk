@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GruveoPublicSDK/CallInitError.h>
-#import <GruveoPublicSDK/GruveoCallRecordingStatus.h>
+#import <GruveoSDK/CallInitError.h>
+#import <GruveoSDK/GruveoCallRecordingStatus.h>
 
 @class UIViewController;
 

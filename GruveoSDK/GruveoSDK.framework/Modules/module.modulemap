@@ -1,0 +1,6 @@
+framework module GruveoSDK {
+  umbrella header "GruveoSDK.h"
+
+  export *
+  module * { export * }
+}

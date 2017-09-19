@@ -13,10 +13,10 @@
 		583C3E8B1F67F28700F3F0AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 583C3E891F67F28700F3F0AA /* Main.storyboard */; };
 		583C3E8D1F67F28700F3F0AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 583C3E8C1F67F28700F3F0AA /* Assets.xcassets */; };
 		583C3E901F67F28700F3F0AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 583C3E8E1F67F28700F3F0AA /* LaunchScreen.storyboard */; };
-		583C3E981F67F2BE00F3F0AA /* GruveoPublicSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583C3E971F67F2BE00F3F0AA /* GruveoPublicSDK.framework */; };
-		583C3E991F67F2BE00F3F0AA /* GruveoPublicSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 583C3E971F67F2BE00F3F0AA /* GruveoPublicSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		583C3E9C1F67F36200F3F0AA /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583C3E9B1F67F36200F3F0AA /* WebRTC.framework */; };
 		583C3E9D1F67F36200F3F0AA /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 583C3E9B1F67F36200F3F0AA /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		58EB83DA1F71605000924CFE /* GruveoSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EB83D91F71605000924CFE /* GruveoSDK.framework */; };
+		58EB83DB1F71605000924CFE /* GruveoSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58EB83D91F71605000924CFE /* GruveoSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				583C3E991F67F2BE00F3F0AA /* GruveoPublicSDK.framework in Embed Frameworks */,
 				583C3E9D1F67F36200F3F0AA /* WebRTC.framework in Embed Frameworks */,
+				58EB83DB1F71605000924CFE /* GruveoSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,8 +45,8 @@
 		583C3E8C1F67F28700F3F0AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		583C3E8F1F67F28700F3F0AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		583C3E911F67F28700F3F0AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		583C3E971F67F2BE00F3F0AA /* GruveoPublicSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GruveoPublicSDK.framework; path = ../GruveoSDK/GruveoPublicSDK.framework; sourceTree = "<group>"; };
 		583C3E9B1F67F36200F3F0AA /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = GruveoSampleApp/WebRTC.framework; sourceTree = "<group>"; };
+		58EB83D91F71605000924CFE /* GruveoSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GruveoSDK.framework; path = ../GruveoSDK/GruveoSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				583C3E981F67F2BE00F3F0AA /* GruveoPublicSDK.framework in Frameworks */,
 				583C3E9C1F67F36200F3F0AA /* WebRTC.framework in Frameworks */,
+				58EB83DA1F71605000924CFE /* GruveoSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +65,8 @@
 		583C3E741F67F28700F3F0AA = {
 			isa = PBXGroup;
 			children = (
+				58EB83D91F71605000924CFE /* GruveoSDK.framework */,
 				583C3E9B1F67F36200F3F0AA /* WebRTC.framework */,
-				583C3E971F67F2BE00F3F0AA /* GruveoPublicSDK.framework */,
 				583C3E7F1F67F28700F3F0AA /* GruveoSampleApp */,
 				583C3E7E1F67F28700F3F0AA /* Products */,
 			);
@@ -136,7 +136,7 @@
 				TargetAttributes = {
 					583C3E7C1F67F28700F3F0AA = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -300,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${PROJECT_DIR}/../GruveoSDK/",
@@ -309,6 +310,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gruveo.GruveoSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -316,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"${PROJECT_DIR}/../GruveoSDK/",
@@ -325,6 +328,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gruveo.GruveoSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -347,6 +351,7 @@
 				583C3E961F67F28700F3F0AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -32,9 +32,9 @@ $ pod install
 
 1. Add `NSCameraUsageDescription` and `NSMicrophoneUsageDescription` to your application's Info.plist
 2. Set “Enable Bitcode” to NO in Target -> Build Settings -> Enable Bitcode
-3. Import `GruveoPublicSDK` to the `AppDelegate` and your `ViewController` class:
+3. Import `GruveoSDK` to the `AppDelegate` and your `ViewController` class:
 ```objective-c
-@import GruveoPublicSDK;
+@import GruveoSDK;
 ```
 4. Register your [сlient ID](https://about.gruveo.com/developers/api-credentials/) after application startup: 
 ```objective-c

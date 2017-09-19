@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-@import GruveoPublicSDK;
+@import GruveoSDK;
 
 @interface ViewController () <GruveoCallManagerDelegate, UITextFieldDelegate>
 
