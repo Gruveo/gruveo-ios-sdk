@@ -11,14 +11,14 @@ Pod::Spec.new do |s|
 
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
-  s.author       = { "Gruveo" => "art@gruveo.com" }
+  s.author       = "Gruveo"
 
   s.platform     = :ios, "9.0"
 
-  s.source       = { :git => "https://github.com/Gruveo/gruveo-ios-sdk.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Gruveo/gruveo-ios-sdk.git", :tag => s.version }
 
-  s.dependency "GoogleWebRTC", "~> 1.0.136171"
+  s.dependency "GruveoWebRTC", "~> 1.59"
 
-  s.vendored_frameworks = 'GruveoSDK/GruveoSDK.framework'
+  s.vendored_frameworks = "GruveoSDK/GruveoSDK.framework"
 
 end
