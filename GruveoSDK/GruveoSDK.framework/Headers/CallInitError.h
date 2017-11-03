@@ -8,6 +8,7 @@
 
 typedef NS_ENUM(NSUInteger, CallInitError) {
     CallInitErrorNone = 0,              // Сall created successfully
+    CallInitErrorCodeCallExist,         // Curretn call not ended
     CallInitErrorMissingClientID,       // The clientId value hasn't been set
     CallInitErrorInvalidCode,           // The code value contains invalid characters
     CallInitErrorNetworkUnreachable,    // The device is offline

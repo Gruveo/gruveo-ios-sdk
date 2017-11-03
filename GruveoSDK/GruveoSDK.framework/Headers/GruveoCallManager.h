@@ -21,9 +21,10 @@ typedef NS_ENUM(NSUInteger, GruveoCallEndReason) {
     GruveoCallEndReasonHandleBusy,                    // Callee is busy with another call
     GruveoCallEndReasonHandleNonExist,                // Gruveo handle doesn't exist
     GruveoCallEndReasonFreeDemoEnded,                 // The 5-minute call limit has been reached (when using the demo client ID)
-    GruveoCallEndREasonRoomLimitReached,              // Room limit of 8 participants has been reached
+    GruveoCallEndReasonRoomLimitReached,              // Room limit of 8 participants has been reached
     GruveoCallEndReasonNoConnection,                  // Lost connection
-    GruveoCallEndReasonUser                           // Call ended normally from UI
+    GruveoCallEndReasonUser,                          // Call ended normally from UI
+    GruveoCallEndReasonOtherParty                     // Call ended normally by other party
 };
 
 @protocol GruveoCallManagerDelegate <NSObject>
@@ -67,10 +68,11 @@ typedef NS_ENUM(NSUInteger, GruveoCallEndReason) {
  *
  * @param code The room name to join or the Gruveo @handle to call.
  * @param video Whether local camera should be enabled or not.
+ * @param chat Whether to enable the text chat.
  * @param viewController Source view controller.
  * @param callCreationCompletionBlock Called after the call is initialized, returns CallInitErrorNone on succes or an error value. See the CallInitError enum for more errors.
  */
-+ (void)callCode:(NSString *)code videoCall:(BOOL)video onViewController:(UIViewController *)viewController callCreationCompletion:(void(^)(CallInitError creationError))callCreationCompletionBlock;
++ (void)callCode:(NSString *)code videoCall:(BOOL)video textChat:(BOOL)chat onViewController:(UIViewController *)viewController callCreationCompletion:(void(^)(CallInitError creationError))callCreationCompletionBlock;
 
 /**
  * Sets the delegate for the GruveoCallManagerDelegate events.
