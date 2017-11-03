@@ -45,7 +45,7 @@
     
     [self.textField resignFirstResponder];
 
-    [GruveoCallManager callCode:self.textField.text videoCall:YES onViewController:self callCreationCompletion:^(CallInitError creationError) {
+    [GruveoCallManager callCode:self.textField.text videoCall:YES textChat:YES onViewController:self callCreationCompletion:^(CallInitError creationError) {
         self.button.hidden = NO;
         [self.activityIndicator stopAnimating];
         if (creationError != CallInitErrorNone) {
