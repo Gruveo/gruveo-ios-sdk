@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GruveoSDK"
 
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
 
   s.summary      = "GruveoSDK is framework to make call using Gruveo API"
   
