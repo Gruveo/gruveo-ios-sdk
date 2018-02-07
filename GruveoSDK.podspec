@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
 
   s.version      = "1.1.2"
 
-  s.summary      = "GruveoSDK is framework to make call using Gruveo API"
+  s.summary      = "Official Gruveo SDK for adding video chat functionality to your iOS app"
   
   s.description  = "The Gruveo SDK for iOS lets you quickly and easily add a white-label screen with a video calling UI to your iOS app. It is the ready-to-use solution you need to add video and voice calling to your iOS app in minutes."
   
