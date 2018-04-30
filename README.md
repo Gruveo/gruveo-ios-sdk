@@ -32,19 +32,20 @@ $ pod install
 
 1. Add `NSCameraUsageDescription` and `NSMicrophoneUsageDescription` to your application's Info.plist
 2. Set “Enable Bitcode” to NO in Target -> Build Settings -> Enable Bitcode
-3. Import `GruveoSDK` to the `AppDelegate` and your `ViewController` class:
+3. Check the "Audio, AirPlay, and Picture in Picture" checkbox under Capabilities -> Background Modes
+4. Import `GruveoSDK` to the `AppDelegate` and your `ViewController` class:
 ```objective-c
 @import GruveoSDK;
 ```
-4. Register your [сlient ID](https://about.gruveo.com/developers/api-credentials/) after application startup: 
+5. Register your [сlient ID](https://about.gruveo.com/developers/api-credentials/) after application startup: 
 ```objective-c
 [GruveoCallManager setClientId:@"demo”]
 ```
-5. Set delegate for `GruveoCallManager` in the `viewDidLoad` function:
+6. Set delegate for `GruveoCallManager` in the `viewDidLoad` function:
 ```objective-c
 [GruveoCallManager setDelegate:self]
 ```
-6. Implement creation of the Gruveo call screen:
+7. Implement creation of the Gruveo call screen:
 ```objective-c
 [GruveoCallManager callCode:@"hello" videoCall:YES onViewController:self callCreationCompletion:^(CallInitError creationError) {
     if (creationError != CallInitErrorNone) {
@@ -52,7 +53,7 @@ $ pod install
     }
 }];
 ```
-7. Implement the delegate function for token signing. **Warning**: The sample implementation below uses a signing endpoint provided by Gruveo and will only work for the `demo` client ID:
+8. Implement the delegate function for token signing. **Warning**: The sample implementation below uses a signing endpoint provided by Gruveo and will only work for the `demo` client ID:
 ```objective-c
 - (void)requestToSignApiAuthToken:(NSString *)token {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api-demo.gruveo.com/signer"]];
@@ -73,10 +74,10 @@ $ pod install
     }] resume];
 }
 ```
-8. Implement the other useful delegate functions:
+9. Implement the other useful delegate functions:
 ```objective-c
 - (void)callEstablished {}
 - (void)callEnd:(GruveoCallEndReason)reason {}
 - (void)recordingStateChanged {}
 ```
-8. Build and run your application.
+10. Build and run your application.
