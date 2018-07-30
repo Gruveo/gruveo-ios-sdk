@@ -51,6 +51,11 @@ typedef NS_ENUM(NSUInteger, GruveoCallEndReason) {
  */
 - (void)recordingStateChanged;
 
+/**
+ * Returns filename of new recording output file.
+ */
+- (void)recordingFilename:(NSString *)filename;
+
 @end
 
 @interface GruveoCallManager : NSObject
@@ -134,5 +139,12 @@ typedef NS_ENUM(NSUInteger, GruveoCallEndReason) {
  * @param enable Set to YES to start recording or to NO to stop it.
  */
 + (void)toggleRecording:(BOOL)enable;
+
+/**
+ * Returns a random code for room name.
+ *
+ *
+ */
++ (NSString *)generateRandomCode;
 
 @end
