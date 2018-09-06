@@ -27,6 +27,11 @@ typedef NS_ENUM(NSUInteger, GruveoCallEndReason) {
     GruveoCallEndReasonOtherParty                     // Call ended normally by other party
 };
 
+typedef NS_ENUM(NSUInteger, GruveoCallRecordingLayout) {
+    GruveoCallRecordingLayoutTiled = 0,
+    GruveoCallRecordingLayoutMaximized
+};
+
 @protocol GruveoCallManagerDelegate <NSObject>
 
 /**
@@ -134,11 +139,19 @@ typedef NS_ENUM(NSUInteger, GruveoCallEndReason) {
 + (void)toggleRoomLock:(BOOL)enable;
 
 /**
- * Starts or stops call recording.
+ * Starts or stops call recording. With layout parameter GruveoCallRecordingLayoutMaximized.
  *
  * @param enable Set to YES to start recording or to NO to stop it.
  */
 + (void)toggleRecording:(BOOL)enable;
+
+/**
+ * Starts or stops call recording.
+ *
+ * @param enable Set to YES to start recording or to NO to stop it.
+ * @param layout Set to GruveoCallRecordingLayout to select recording layout.
+ */
++ (void)toggleRecording:(BOOL)enable withLayout:(GruveoCallRecordingLayout)layout;
 
 /**
  * Returns a random code for room name.
