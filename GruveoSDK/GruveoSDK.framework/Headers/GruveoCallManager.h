@@ -80,9 +80,19 @@ typedef NS_ENUM(NSUInteger, GruveoCallRecordingLayout) {
  * @param video Whether local camera should be enabled or not.
  * @param chat Whether to enable the text chat.
  * @param viewController Source view controller.
- * @param callCreationCompletionBlock Called after the call is initialized, returns CallInitErrorNone on succes or an error value. See the CallInitError enum for more errors.
+ * @param callCreationCompletionBlock Called after the call is initialized. Passes CallInitErrorNone on success or an error value. See the CallInitError enum for the possible errors.
  */
 + (void)callCode:(NSString *)code videoCall:(BOOL)video textChat:(BOOL)chat onViewController:(UIViewController *)viewController callCreationCompletion:(void(^)(CallInitError creationError))callCreationCompletionBlock;
+
+/**
+ * Initializes a new call and returns the call view controller to show.
+ *
+ * @param code The room name to join or the Gruveo @handle to call.
+ * @param video Whether local camera should be enabled or not.
+ * @param chat Whether to enable the text chat.
+ * @param callCreationCompletionBlock Called after the call is initialized. Passes CallInitErrorNone on success or an error value, as well as the UIViewController that need to be presented. See the CallInitError enum for the possible errors.
+ */
++ (void)callCode:(NSString *)code videoCall:(BOOL)video textChat:(BOOL)chat callCreationCompletion:(void(^)(CallInitError creationError, UIViewController *callViewController))callCreationCompletionBlock;
 
 /**
  * Sets the delegate for the GruveoCallManagerDelegate events.
