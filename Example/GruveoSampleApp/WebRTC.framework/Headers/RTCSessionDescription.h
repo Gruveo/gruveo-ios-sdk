@@ -10,7 +10,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <WebRTC/RTCMacros.h>
+#import "RTCMacros.h"
 
 /**
  * Represents the session description type. This exposes the same types that are
@@ -24,8 +24,8 @@ typedef NS_ENUM(NSInteger, RTCSdpType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-RTC_EXPORT
-@interface RTCSessionDescription : NSObject
+RTC_OBJC_EXPORT
+@interface RTC_OBJC_TYPE (RTCSessionDescription) : NSObject
 
 /** The type of session description. */
 @property(nonatomic, readonly) RTCSdpType type;
@@ -36,8 +36,7 @@ RTC_EXPORT
 - (instancetype)init NS_UNAVAILABLE;
 
 /** Initialize a session description with a type and SDP string. */
-- (instancetype)initWithType:(RTCSdpType)type sdp:(NSString *)sdp
-    NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithType:(RTCSdpType)type sdp:(NSString *)sdp NS_DESIGNATED_INITIALIZER;
 
 + (NSString *)stringForType:(RTCSdpType)type;
 

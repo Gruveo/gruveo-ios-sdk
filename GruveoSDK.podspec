@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GruveoSDK"
 
-  s.version      = "1.4"
+  s.version      = "1.5"
 
   s.summary      = "Official Gruveo SDK for adding video chat functionality to your iOS app"
   
@@ -13,12 +13,16 @@ Pod::Spec.new do |s|
 
   s.author       = "Gruveo"
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "10.0"
 
   s.source       = { :git => "https://github.com/Gruveo/gruveo-ios-sdk.git", :tag => s.version }
 
-  s.dependency "GruveoWebRTC", "~> 1.65.25.2"
-
   s.vendored_frameworks = "GruveoSDK/GruveoSDK.framework"
+
+  s.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 end
