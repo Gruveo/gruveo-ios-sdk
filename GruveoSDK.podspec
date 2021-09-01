@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "GruveoSDK"
 
-  s.version      = "1.5.1"
+  s.version      = "1.6"
 
   s.summary      = "Official Gruveo SDK for adding video chat functionality to your iOS app"
   
